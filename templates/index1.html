@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.2.3.min.js" crossorigin="anonymous"></script>
+        
+    </head>
+    <body>
+        <h1>Hello World!</h1>
+        <img src="{{custom_link}}static/Image-Of-Whats-Up.jpg" />
+        <form id="form1" action="{{custom_link}}" method="POST">
+            <select id="mytrig" name="mytrig">
+                <option value="Sin">Sin</option>
+                <option value="Cos">Cos</option>
+                <option value="Tan">Tan</option>
+                <option value="Cosec">Cosec</option>
+                <option value="Sec">Sec</option>
+                <option value="Cot">Cot</option>
+            </select>
+            <input type="submit" value="Plot">
+          </form>
+        {{ div | safe }}
+        {{ script | safe }}
+    </body>
+</html>
