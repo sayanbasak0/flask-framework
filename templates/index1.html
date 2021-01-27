@@ -5,19 +5,30 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-        <img src="{{custom_link}}static/Image-Of-Whats-Up.jpg" />
-        <form id="form1" action="{{custom_link}}" method="POST">
-            <select id="mytrig" name="mytrig">
-                <option value="Sin">Sin</option>
-                <option value="Cos">Cos</option>
-                <option value="Tan">Tan</option>
-                <option value="Cosec">Cosec</option>
-                <option value="Sec">Sec</option>
-                <option value="Cot">Cot</option>
-            </select>
-            <input type="submit" value="Plot">
-          </form>
+        <!-- <img src="{{custom_link}}static/Image-Of-Whats-Up.jpg" /> -->
         {{ div | safe }}
+        <p>
         {{ script | safe }}
+        </p>
+        <form id="form1" action="{{custom_link}}" method="POST">
+            <select id="myfunc" name="myfunc">
+                {% for func in funcs %}
+                <option value="{{func}}">{{func}}</option>{{ error }}
+                {% endfor %}
+            </select>
+            Labeler(X-Axis): <input type="text" value="x" name="typed_xlabel">
+            <input type="submit" value="Plot">
+        </form>
+        <form id="form2" action="{{custom_link}}" method="POST">
+            {% for func in funcs[1:] %}
+            <input type="submit" value="{{func}}" name="myfunc">
+            {% endfor %}
+            Labeler(X-Axis): <input type="text" value="x" name="typed_xlabel">
+        </form>
+        
+        <form id="form2" action="{{custom_link}}" method="POST">
+            <input type="submit" value="<< Back" >
+        </form>
+        
     </body>
 </html>
